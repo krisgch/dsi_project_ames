@@ -1,33 +1,8 @@
-# Project 2 - Ames Housing Data and Kaggle Challenge
+# DSI Project 2: Linear Regression Model on Ames Housing Dataset to Predict Sale Prices
 
-Welcome to Project 2! It's time to start modeling.
+## Project Overview
 
-**Primary Learning Objectives:**
-
-1. Creating and iteratively refining a regression model
-1. Using [Kaggle](https://www.kaggle.com/) to practice the modeling process
-1. Providing business insights through reporting and presentation.
-
-You are tasked with creating a regression model based on the Ames Housing Dataset. This model will predict the price of a house at sale.
-
-The Ames Housing Dataset is an exceptionally detailed and robust dataset with over 70 columns of different features relating to houses.
-
-Secondly, we are hosting a competition on Kaggle to give you the opportunity to practice the following skills:
-
-- Refining models over time
-- Use of train-test split, cross-validation, and data with unknown values for the target to simulate the modeling process
-- The use of Kaggle as a place to practice data science
-
-As always, you will be submitting a technical report and a presentation. **You may find that the best model for Kaggle is not the best model to address your data science problem.**
-
-## Set-up
-
-Before you begin working on this project, please do the following:
-
-1. Sign up for an account on [Kaggle](https://www.kaggle.com/)
-2. **IMPORTANT**: Click this link ([Regression Challenge Sign Up](https://www.kaggle.com/competitions/dsi-tda-02-project-2/)) to **join** the competition (otherwise you will not be able to make submissions!)
-3. Review the material on the [DSI-TDA-02 Regression Challenge](https://www.kaggle.com/competitions/dsi-tda-02-project-2/overview)
-4. Review the [data description](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
+The goal of this project is to create a **linear regression model** based on the Ames Housing Dataset to predict the price of a house at sale.
 
 ## The Modeling Process
 
