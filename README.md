@@ -1,143 +1,126 @@
 # DSI Project 2: Linear Regression Model on Ames Housing Dataset to Predict Sale Prices
 
+## Table of Content
+[1. Project Overview](#project-overview)<br>
+[2. Abstract](#abstract)<br>
+[3. Project Workflow](#project-workflow)<br>
+[4. Repository Structure](#repository-structure)<br>
+[5. File Description](#file-description)
+
+
+---
+
 ## Project Overview
 
 The goal of this project is to create a **linear regression model** based on the Ames Housing Dataset to predict the price of a house at sale.
 
-## The Modeling Process
 
-1. The train dataset has all of the columns that you will need to generate and refine your models. The test dataset has all of those columns except for the target that you are trying to predict in your Regression model.
-2. Generate your regression model using the training data. We expect that within this process, you'll be making use of:
-    - train-test split
-    - cross-validation / grid searching for hyperparameters
-    - strong exploratory data analysis to question correlation and relationship across predictive variables
-    - code that reproducibly and consistently applies feature transformation (such as the preprocessing library)
-3. Predict the values for your target column in the test dataset and submit your predictions to Kaggle to see how your model does against unknown data.
-    - **Note**: Kaggle expects to see your submissions in a specific format. Check the challenge's page to make sure you are formatting your CSVs correctly!
-    - **You are limited to models you've learned thus far in class**. In other words, you cannot use XGBoost, Neural Networks or any other advanced model for this project.
-4. Evaluate your models!
-    - consider your evaluation metrics
-    - consider your baseline score
-    - how can your model be used for inference?
-    - why do you believe your model will generalize to new data?
+## Abstract
 
-## Submission
+The initial dataset contains 82 columns. Cleaning and grouping of columns significantly simplifies the datasets and model to 60 columns, 25 numerical columns, 34 categorical columns, and 1 target variable column. This allows model iteration to be systematic and clean, as well as allow model interpretation to be more understandable. 
 
-Materials must be submitted by the beginning of class on **Friday, September 23**.
+Kaggle submission model consists of 25 numerical columns and 14 categorical columns which performs well with 20,788 RMSE on kaggle, and the R^2 score of 0.93 and 0.91 for training and testing datasets. 
 
-The last day for the Kaggle competition will be **Thursday, September 22**.
-
-Your technical report will be hosted on Github Enterprise. Make sure it includes:
-
-- A README.md (that isn't this file)
-- Jupyter notebook(s) with your analysis and models (renamed to describe your project)
-- At least one successful prediction submission on [DSI-TDA-02 Regression Challenge](https://www.kaggle.com/competitions/dsi-tda-02-project-2/) --  you should see your name in the "[Leaderboard](https://www.kaggle.com/competitions/dsi-tda-02-project-2/leaderboard)" tab.
-- Data files
-- Presentation slides
-- Any other necessary files (images, etc.)
-
-**Check with your instructional team for how they would like you to submit your repo for review.**
-
----
-
-## Presentation Structure
-
-- **Must be within time limit established by your instructor.**
-- Use Powerpoint or some other visual aid (Google Slides, Keynote, etc).
-- Consider the audience. **Check with your instructor for direction**.
-- Start with the **data science problem**.
-- Use visuals that are appropriately scaled and interpretable.
-- Talk about your procedure/methodology (high level).
-- Talk about your primary findings.
-- Make sure you provide **clear recommendations** that follow logically from your analyses and narrative and answer your data science problem.
-
-Be sure to rehearse and time your presentation before class.
-
----
-
-### The Data Science Process
-
-**Problem Statement**
-- Is it clear what the student plans to do?
-- What type of model will be developed?
-- How will success be evaluated?
-- Is the scope of the project appropriate?
-- Is it clear who cares about this or why this is important to investigate?
-- Does the student consider the audience and the primary and secondary stakeholders?
-
-**Data Cleaning and EDA**
-- Are missing values imputed appropriately?
-- Are distributions examined and described?
-- Are outliers identified and addressed?
-- Are appropriate summary statistics provided?
-- Are steps taken during data cleaning and EDA framed appropriately?
-- Does the student address whether or not they are likely to be able to answer their problem statement with the provided data given what they've discovered during EDA?
-
-**Preprocessing and Modeling**
-- Are categorical variables one-hot encoded?
-- Does the student investigate or manufacture features with linear relationships to the target?
-- Have the data been scaled appropriately?
-- Does the student properly split and/or sample the data for validation/training purposes?
-- Does the student utilize feature selection to remove noisy or multi-collinear features?
-- Does the student test and evaluate a variety of models to identify a production algorithm (**AT MINIMUM:** linear regression, lasso, and ridge)?
-- Does the student defend their choice of production model relevant to the data at hand and the problem?
-- Does the student explain how the model works and evaluate its performance successes/downfalls?
-
-**Evaluation and Conceptual Understanding**
-- Does the student accurately identify and explain the baseline score?
-- Does the student select and use metrics relevant to the problem objective?
-- Is more than one metric utilized in order to better assess performance?
-- Does the student interpret the results of their model for purposes of inference?
-- Is domain knowledge demonstrated when interpreting results?
-- Does the student provide appropriate interpretation with regards to descriptive and inferential statistics?
-
-**Conclusion and Recommendations**
-- Does the student provide appropriate context to connect individual steps back to the overall project?
-- Is it clear how the final recommendations were reached?
-- Are the conclusions/recommendations clearly stated?
-- Does the conclusion answer the original problem statement?
-- Does the student address how findings of this research can be applied for the benefit of stakeholders?
-- Are future steps to move the project forward identified?
-
-### Organization and Professionalism
-
-**Project Organization**
-- Are modules imported correctly (using appropriate aliases)?
-- Are data imported/saved using relative paths?
-- Does the README provide a good executive summary of the project?
-- Is markdown formatting used appropriately to structure notebooks?
-- Are there an appropriate amount of comments to support the code?
-- Are files & directories organized correctly?
-- Are there unnecessary files included?
-- Do files and directories have well-structured, appropriate, consistent names?
-
-**Visualizations**
-- Are sufficient visualizations provided?
-- Do plots accurately demonstrate valid relationships?
-- Are plots labeled properly?
-- Are plots interpreted appropriately?
-- Are plots formatted and scaled appropriately for inclusion in a notebook-based technical report?
-
-**Python Syntax and Control Flow**
-- Is care taken to write human readable code?
-- Is the code syntactically correct (no runtime errors)?
-- Does the code generate desired results (logically correct)?
-- Does the code follows general best practices and style guidelines?
-- Are Pandas functions used appropriately?
-- Are `sklearn` methods used appropriately?
-
-**Presentation**
-- Is the problem statement clearly presented?
-- Does a strong narrative run through the presentation building toward a final conclusion?
-- Are the conclusions/recommendations clearly stated?
-- Is the level of technicality appropriate for the intended audience?
-- Is the student substantially over or under time?
-- Does the student appropriately pace their presentation?
-- Does the student deliver their message with clarity and volume?
-- Are appropriate visualizations generated for the intended audience?
-- Are visualizations necessary and useful for supporting conclusions/explaining findings?
+However, if I was to select one model for production it would be our iteration model that consists of 25 numerical columns and 6 categorical columns (generic quality related columns) - performing very well with 21,084 RMSE on test dataset and an R^2 score of 0.92 and 0.92. Selecting a more generic feature that every houses must have allows the model to be more robust in the future as well as more resistance to overfitting.
 
 
-### REMEMBER:
+## Project Workflow
 
-This is a learning environment and you are encouraged to try new things, even if they don't work out as well as you planned! While this rubric outlines what we look for in a _good_ project, it is up to you to go above and beyond to create a _great_ project. **Learn from your failures and you'll be prepared to succeed in the workforce**.
+
+1. Explore the datasets to understand what each columns mean as many terms are american housing related terms. This process involves researching and understanding what feature of american house contributes to the price and other technical terms e.g. sale type and sale condition.
+
+2. Once I have a clear understanding of the dataset, I begin to explore the dataset with EDA in order to understand the dataset further and ultimately deal with missing values. Missing values from this dataset was dealt with in 4 ways (dropping, impute mode, impute 0, and impute 'None')
+
+3. Once there are no missing values, the relationship between columns was then investigated in order to combine and drop redundant columns. Leaving columns that are highly related (i.e. dependent columns) will confuse the model which usually results in suboptimal coefficients and model performance.
+
+4. Cleaning of categorical columns involves exploring the mean of each groupby of column results, and combining the values of columns with uneven categorical value. This method allows us to simplify our categorical column and model to create flexibility and ability to take in new information.
+
+5. Feature engineering was then carried out as our feature correlates better with natural log of sale price. Comparison of models during model iteration will support this decision.
+
+6. With the data ready, I proceeded with creating a benchmarking model with top 5 numerical features ranks by correlation with target variable y (sale price). This benchmarking model serves as a baseline to assess our iterations performance.
+
+7. Iterating through the model options systematically, from numerical to category, gives us the finalize production model consisting of 25 numerical features and 6 categorical feautres. This model is selected because it's simple and clean, allowing the model to become more robust and is less likely to overfit in the future.
+
+<br>
+
+## Repository Structure 
+```
+dsi_project_ames
+|
+|__ code
+|   |__ 01_data_cleaning.ipynb   
+|   |__ 02_data_preprocessing.ipynb   
+|   |__ 02_data_preprocessing_discrete_to_category.ipynb
+|   |__ 03_model_benchmarking.ipynb  
+|   |__ 04_model_comparison.ipynb
+|   |__ 05_kaggle_competition.ipynb
+|   |__ 06_production_model_evaluation.ipynb
+|  
+|__ datasets
+|   |__ train.csv
+|   |__ test.csv
+|   |__ train_fill.csv
+|   |__ test_fill.csv
+|   |__ train_cleaned.csv
+|   |__ test_cleaned.csv
+|   |__ test_cleaned_discrete.csv
+|   |__ submission.csv
+|
+|__ figure
+|   |__ 2nd_floor.png
+|   |__ basement_sf.png
+|   |__ bath.png
+|   |__ ...
+|
+|__ model
+|   |__ all_num_6_quality_cat.sav
+|   |__ all_num_6qual_neighbour.sav
+|   |__ all_num_10_cat.sav
+|   |__ all_num_many_cat.sav
+|
+|__ README.md
+|
+|__ data_dictionary.md
+```
+<br>
+
+## File Description
+<br>
+
+    01_data_cleaning.ipynb
+- EDA to understand the dataset
+- Cleaning of missing values using different methods
+
+<br>
+
+    02_data_preprocessing.ipynb
+- Grouping of columns
+- Removing redundant columns
+- Cleaning up categorical values
+
+<br>
+
+    02_data_preprocessing_discrete_to_categorry.ipynb
+
+- Converting discrete columns to categorical instead of numerical
+- Everything else is the same as above
+
+<br>
+
+    03_model_benchmarking.ipynb
+- Creating a benchmarking model
+
+<br>
+
+    04_model_comparison.ipynb
+- Iterating over many combinations of models to find the optimal model
+
+<br>
+
+    05_kaggle_competition.ipynb
+- File to generate kaggle competition format of prediction csv to submit on kaggle
+
+<br>
+
+    06_production_model_evaluation.ipynb
+- This display performance of selection model for production as well as gives an overview of why this model was selected.

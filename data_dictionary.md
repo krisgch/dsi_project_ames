@@ -1,4 +1,6 @@
-Codebook / Data Dictionary:
+# Data Dictionary of train.csv
+
+
 - SalePrice - the property’s sale price in dollars. This is the target variable that you’re trying to predict for this challenge.
 - MSSubClass: The building class
     - 20 1-STORY 1946 & NEWER ALL STYLES
