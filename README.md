@@ -124,3 +124,32 @@ dsi_project_ames
 
     06_production_model_evaluation.ipynb
 - This display performance of selection model for production as well as gives an overview of why this model was selected.
+
+<br>
+
+## Production Model and Evaluation
+
+The model selected for production consists of:
+
+```
+# Numerical Columns 25
+
+num_cols = ['overall_quality', 'total_sf','garage_cars','total_bath','year_built', 'has_fireplace', 'total_rooms_above_ground','has_open_porch', 'masonry_area', 'log_lot_area', 'lot_frontage',
+'has_wood_deck', 'central_air', 'has_basement_sf','bedroom_above_ground', 'functional', 'street','has_2nd_floor_sf','month_sold', 'year_sold', 'lot_contour', 'lot_slope',
+'overall_condition', 'kitchen_above_ground', 'lot_shape']
+
+# Categorical Columns 6
+
+cat_cols = ['external_quality','basement_quality','heating_quality','kitchen_quality','fireplace_quality','garage_quality']
+
+```   
+<br>
+
+![production_model](./figure/production_model.png)
+
+Evaluation:
+- This model was selected for it's simplicity
+- By cleaning up the numerical columns keeping all the remaining numerical column allows the model to perform well without overfitting
+- Additionally, by selecting a more generic categorical columns such as quality related column, we can further reduce the RMSE of the model to 19,704 for training data and 21,084 for testing data
+- Looking at the R^2 of both the training and testing datasets shows very little differences (0.006), overfitting should not be the case
+- Cross validation scores shows the same conclusion
